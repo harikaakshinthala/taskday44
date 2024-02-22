@@ -30,7 +30,7 @@ router.post("/:userId",async(request,response)=>{
         const oldLongUrl = await Url.findOne({userId:request.params.userId,longUrl:request.body.longUrl})
         // retuns old shortened url
         if(oldLongUrl) return response.status(200).json({
-            message:"You have already shortened this url, you can re-shot this link if you delete the previous shortened link",
+            message:"You have already shortened this url, you can re-short this link if you deleted the previous shortened link",
             previousShortenedUrl:oldLongUrl.shortenedUrl
         })
 
@@ -45,7 +45,7 @@ router.post("/:userId",async(request,response)=>{
             }
         ).save()
 
-        if(!newUrl)return response.status(400).json({message:"Shotening URL Error"})
+        if(!newUrl)return response.status(400).json({message:"Shortening URL Error"})
 
         // returning the data
         response.status(200).json(newUrl)
