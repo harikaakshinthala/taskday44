@@ -35,6 +35,7 @@ router.post("/:userId",async(request,response)=>{
         })
 
         const RandomString = randomString(5)
+        console.log(process.env.URL_SHORTENER)
         // shortening new long url
         const newUrl = await new Url(
             {
